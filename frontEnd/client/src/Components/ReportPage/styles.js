@@ -10,15 +10,42 @@ export default makeStyles((theme) => ({
     padding: theme.spacing(2),
   },
   form: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
+    // display: 'flex',
+    // flexWrap: 'wrap',
+    // justifyContent: 'center',
   },
   fileInput: {
     width: '97%',
     margin: '10px 0',
   },
-  buttonSubmit: {
-    marginBottom: 10,
+  titleCard: {
+    width: '100%',
+    color: 'white !important',
+    paddingTop: '10px',
+    paddingBottom: '10px',
   },
+  titleCardBackground: {
+    backgroundColor: '#E56660 !important',
+    border: '#E56660 !important',
+    marginTop: '30px',
+  },
+  reportForm: {
+    width: '100%',
+  },
+  inputField: {
+    marginTop: '20px',
+    marginBottom: '20px',
+  },
+  submitButton: {
+    marginTop: '20px',
+    marginBottom: '20px',
+    backgroundColor: '#E56660 !important',
+    border: '#E56660 !important',
+    color: 'white',
+    fontFamily: '"Raleway", sans-serif',
+    padding: '10px',
+    paddingLeft: '40px',
+    paddingRight: '40px',
+    borderRadius: '5px',
+  }
 }));

@@ -6,15 +6,12 @@ import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, KeyboardTimePicker, KeyboardDatePicker, DatePicker, TimePicker } from '@material-ui/pickers';
 
-//BAckend additional
-import {useDispatch} from 'react-redux';
+//Design from stles.js
 import useStyles from './styles';
 
-
+//Backend Stuff
+import {useDispatch} from 'react-redux';
 import {createPost} from '../../Actions/posts';
-
-//CSS File
-//import './ReportPage.css';
 
 const Form = () => {
 
@@ -128,7 +125,6 @@ const Form = () => {
 		const dispatch = useDispatch();
     
     const handleSumbit = (e) => {
-        e.preventDefault();
 
         dispatch(createPost(postData));
     }
@@ -138,18 +134,18 @@ const Form = () => {
 
 		return (
 
-			<form className={`${classes.root} ${classes.form}`} onSubmit={handleSumbit}>
+			<form className={`${classes.root} ${classes.form}`} onSubmit={handleSumbit} >
 
 				{/* Title Card */}
-				<div class="card-body" className="TitleCardBackground">
-					<Container className="TitleCard">
+				<div class="card-body" className={classes.titleCardBackground}>
+					<Container className={classes.titleCard}>
 						<h5>Reporting Person Details</h5>
 					</Container>
 				</div>
 
 				{/* Reporting Person Details Input Fields */}
-				<Container classname="ReportForm">
-					<div className="InputField">
+				<Container className={classes.reportForm}>
+					<div className={classes.inputField} >
 						<TextField
 							name="name"
 							variant="filled"
@@ -160,7 +156,7 @@ const Form = () => {
 							onChange={(e) => setPostData({ ...postData, name: e.target.value})}
 						/>
 					</div>
-					<div className="InputField">
+					<div className={classes.inputField}>
 						<TextField
 							name="organization"
 							variant="filled"
@@ -170,7 +166,7 @@ const Form = () => {
 							onChange={(e) => setPostData({ ...postData, organization: e.target.value})}
 						/>
 					</div>
-					<div className="InputField">
+					<div className={classes.inputField}>
 						<TextField
 							name="address"
 							variant="filled"
@@ -206,7 +202,7 @@ const Form = () => {
 							</div>
 						</Grid>
 						<Grid item xs={6}>
-							<div className="InputField">
+							<div className={classes.inputField}>
 								<TextField
 									name="secondaryContact"
 									variant="filled"
@@ -218,7 +214,7 @@ const Form = () => {
 							</div>
 						</Grid>
 						<Grid item xs={6}>
-							<div className="InputField">
+							<div className={classes.inputField}>
 								<TextField
 									name="alternativeEmail"
 									variant="filled"
@@ -231,12 +227,12 @@ const Form = () => {
 						</Grid>
 					</Grid>
 				</Container>
-				<div class="card-body" className="TitleCardBackground">
-					<Container className="TitleCard">
+				<div class="card-body" className={classes.titleCardBackground}>
+					<Container className={classes.titleCard}>
 						<h5>Information Security Event Description</h5>
 					</Container>
 				</div><br />
-				<Container classname="ReportForm">
+				<Container classname={classes.reportForm}>
 					{/* CHECKBOX SECTION */}
 					{/* Title Card */}
 
@@ -340,7 +336,7 @@ const Form = () => {
 								value={postData.physicalSecurityBreach}
 								onChange={(e) => setPostData({ ...postData, physicalSecurityBreach: e.target.checked})}
 								control={<Checkbox color="primary" />}
-								label="Physical/Security Breac"
+								label="Physical/Security Breach"
 								labelPlacement="end"
 							/>
 						</Grid>
@@ -953,13 +949,13 @@ const Form = () => {
 				</Container>
 
 				{/* Information Security Event Details */}
-				<div class="card-body" className="TitleCardBackground">
-					<Container className="TitleCard">
+				<div class="card-body" className={classes.titleCardBackground}>
+					<Container className={classes.titleCard}>
 						<h5>Information Security Event Details</h5>
 					</Container>
 				</div><br />
 
-				<Container classname="ReportForm">
+				<Container classname={classes.reportForm}>
 
 					{/* Date and Time Pickers */}
 					<Grid container spacing={0.01}>
@@ -1079,7 +1075,7 @@ const Form = () => {
 
 					{/* Sumbmit Button */}
 					<div>
-						<button className="SubmitButton">Submit</button>
+						<button className={classes.submitButton}>Submit</button>
 					</div>
 				</Container>
 			</form>

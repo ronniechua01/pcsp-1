@@ -1,39 +1,49 @@
-import React, { Component } from 'react';
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap';
-import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import React, { Component, useState } from 'react';
+import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 
 import HomePage from '../HomePage/HomePage';
 import AboutUs from '../AboutUsPage/AboutUs';
 import ReportPage from '../ReportPage/ReportPage';
+import AdminPage from '../AdminPage/AdminPage';
+import Resources from '../ResourcesPage/Resources';
+import securityTopics from '../ResourcesPage/CyberSecurityTopicsPage/cyberSecuritytopics'
+import CyberSecurityTopicsPage from '../ResourcesPage/CyberSecurityTopicsPage/CyberSecurityTopicsPage'
 
 import './NavbarComp.css';
 
 export default class NavbarComp extends Component {
+
     render() {
+
         return (
             <Router>
                 <div>
                     <Navbar variant="dark" expand="lg" className="NavbarComp">
-                        <Navbar.Brand href="#">PCSP</Navbar.Brand>
-                        <Navbar.Brand href="#">Philippine Cyber Security Portal</Navbar.Brand>
+                        <Navbar.Brand href="/home">PCSP</Navbar.Brand>
+                        <Navbar.Brand href="/home">Philippine Cyber Security Portal</Navbar.Brand>
                         <Navbar.Toggle aria-controls="navbarScroll" />
-                        <Navbar.Collapse id="navbarScroll">
+                        <Navbar.Collapse id="navbarScroll" className="MenuItems">
                             <Nav
                                 className="mr-auto my-2 my-lg-0"
                                 style={{ maxHeight: '154px' }}
                                 navbarScroll
                             >
                                 <Nav.Link as={Link} to="/home">Home</Nav.Link>
-                                <NavDropdown title="Resources" id="navbarScrollingDropdown">
-                                    <NavDropdown.Item href="#action3">Cyber Security Topics</NavDropdown.Item>
+                                <NavDropdown
+                                    title="Resources"
+                                    id="collasible-nav-dropdown"
+                                    renderMenuOnMount={true}
+                                    //onToggle={() => { window.location.href = '/resources' }}
+                                >
+                                    <NavDropdown.Item as={Link} to="/cybersecurity">Cyber Security Topics</NavDropdown.Item>
                                     <NavDropdown.Item href="#action4">News and Updates</NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
                                 </NavDropdown>
                                 <Nav.Link as={Link} to="/about">About Us</Nav.Link>
                             </Nav>
                             {/* Search Bar */}
-                            <Form className="d-flex">
+                            <Form className="SearchBar">
                                 <FormControl
                                     type="search"
                                     placeholder="Search"
@@ -42,9 +52,11 @@ export default class NavbarComp extends Component {
                                 />
                             </Form>
 
-                            {/* Report Here Button */}
-                            <Button className="ReportButton" as={Link} to="/report">Report Here</Button>
                         </Navbar.Collapse>
+
+                        {/* Report Here Button */}
+                        <Button className="ReportButton" as={Link} to="/report">Report Here</Button>
+
                     </Navbar>
                 </div>
 
@@ -52,13 +64,22 @@ export default class NavbarComp extends Component {
                 <div>
                     <Switch>
                         <Route path="/home">
-                            <HomePage/>
-                        </Route>
-                        <Route path="/about">
-                            <AboutUs/>
+                            <HomePage />
                         </Route>
                         <Route path="/report">
-                            <ReportPage/>
+                            <ReportPage />
+                        </Route>
+                        <Route path="/admin">
+                            <AdminPage />
+                        </Route>
+                        <Route path="/about">
+                            <AboutUs />
+                        </Route>
+                        <Route path="/resources">
+                            <Resources />
+                        </Route>
+                        <Route path="/cybersecurity">
+                            <CyberSecurityTopicsPage />
                         </Route>
                     </Switch>
                 </div>
