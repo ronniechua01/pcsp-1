@@ -126,6 +126,6 @@ dateEnded: String,
 timeEnded: String, 
 });
 
-const PostMessage = mongoose.model('PostMessage', pcspSchema);
+const PostMessage = mongoose.model('ReportPage', pcspSchema);
 
 export default PostMessage;
