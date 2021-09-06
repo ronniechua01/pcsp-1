@@ -29,7 +29,8 @@ const alternateSchema = new Schema({
       validate: [validateEmail, 'Please fill a valid email address'],
       match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
   }
-})*/
+})
+**/
 
 const pcspSchema = mongoose.Schema ({
 
@@ -38,9 +39,7 @@ const pcspSchema = mongoose.Schema ({
     address: String,
     primaryContact: Number,
     secondaryContact: Number,
-    email: String,
-    alternativeEmail: String,
-   //email: emailSchema,
+    //email: emailSchema,
     //alternativeEmail: alternateSchema,
       lossOfService: Boolean,
       lossOfEquipment: Boolean,
@@ -126,6 +125,6 @@ dateEnded: String,
 timeEnded: String, 
 });
 
-const PostMessage = mongoose.model('ReportPage', pcspSchema);
+const PostMessage = mongoose.model('PostMessage', pcspSchema);
 
 export default PostMessage;

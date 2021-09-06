@@ -144,7 +144,7 @@ const HomePage = () => {
                             </a>
                         </Grid>
                         <Grid item xs={4}>
-                            <a href="https://www.cnnphilippines.com/news/2021/8/6/Manila-City-vaccination-registration-website-hacked-troll-farm.html">
+                            <a href="https://www.bworldonline.com/main-philippine-govt-portal-hacked-after-death-of-9-activists/">
                                 <img src="/images/dataBreach.jpg" className="News" />
                             </a>
                         </Grid>

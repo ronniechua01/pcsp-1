@@ -31,7 +31,6 @@ export default class NavbarComp extends Component {
                                 navbarScroll
                             >
                                 <Nav.Link as={Link} to="/home">Home</Nav.Link>
-                                {/* <Nav.Link as={Link} to="/resources">Resources</Nav.Link> */}
                                 <NavDropdown
                                     title="Resources"
                                     id="collasible-nav-dropdown"
@@ -80,11 +79,8 @@ export default class NavbarComp extends Component {
                             <Resources />
                         </Route>
                         <Route path="/cybersecurity">
-                            <cyberSecuritytopics />
+                            <CyberSecurityTopicsPage />
                         </Route>
-                        {/* <Route path="/newsandupdates">
-                            <newsAndupdates />
-                        </Route> */}
                     </Switch>
                 </div>
             </Router>

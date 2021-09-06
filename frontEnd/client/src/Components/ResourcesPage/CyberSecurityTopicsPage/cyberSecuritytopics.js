@@ -41,4 +41,3 @@ export default class securityTopics extends Component {
     }
 
 }
-
